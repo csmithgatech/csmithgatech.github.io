@@ -269,6 +269,11 @@ h3 {
   padding-bottom:1px;
   font-weight:500;
   border-bottom:3px solid $darker-red;
+  /* hyphens bc they are big */
+  -webkit-hyphens: auto;
+   -moz-hyphens: auto;
+   -ms-hyphens: auto;
+   hyphens: auto;
   /*fallback color is set above*/
   color: #fff;
   text-shadow:
@@ -306,7 +311,7 @@ p {
   font-family:$serif-font;
   color:$almost-black;
   font-size:16px;
-  line-height:22px;
+  line-height:1.2em;
   font-weight:500;
 
   strong {
@@ -320,9 +325,17 @@ aside {
   font-size:14px;
 }
 
-ul li {
-  font-family:$serif-font;
-  padding-bottom:3px;
+ul {
+  list-style-position: inside;
+  li {
+    font-family:$serif-font;
+    padding-bottom:3px;
+    font-family:$serif-font;
+    color:$almost-black;
+    font-size:16px;
+    line-height:1.2em;
+    font-weight:500;
+  }
 }
 
 //-header
@@ -380,9 +393,6 @@ div.about {
     height:auto;
     max-width:300px;
     margin:20px auto 0 auto;
-  }
-
-  p.profile {
   }
 }
 
