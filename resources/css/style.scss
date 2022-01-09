@@ -2,9 +2,9 @@
 //Variables
 //-Colors
 $neon-blue: #71f8fa;
-$darker-blue: #60d2d4;
-$teal: #139ea8;
-$bright-red: #e01e24;
+$darker-blue: #60d2d4; //rgb(96, 210, 212)
+$teal: #139ea8; //rgb(19, 158, 168)
+$bright-red: #e01e24; //rgb(224, 30, 36)
 $darker-red: #c61017;
 $almost-black: #111;
 $border-color: #d8d8d8;
@@ -264,8 +264,8 @@ h3 {
   font-family:$sans-serif-font;
   margin-top:30px;
   margin-bottom:0;
-  font-size:65px;
-  line-height:60px;
+  font-size:45px;
+  line-height:50px;
   padding-bottom:1px;
   font-weight:500;
   border-bottom:3px solid $darker-red;
@@ -489,6 +489,11 @@ ul {
   nav{
     flex-direction: row;
      justify-content: space-between;
+  }
+
+  h3 {
+    font-size:70px;
+    line-height:75px;
   }
 
   div.about {
