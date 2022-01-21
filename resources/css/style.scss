@@ -245,14 +245,14 @@ h1 {
   font-size:80px;
   line-height:80px;
   color:white;
-  font-weight:300;
+  font-weight:900;
 }
 
 h2 {
   font-family:$sans-serif-font;
   text-align:center;
   font-weight:300;
-  font-size:25px;
+  font-size:21px;
   line-height:25px;
   margin:5px 0 5px 0;
   padding-bottom:5px;
@@ -308,11 +308,21 @@ h5 {
   }
 }
 
+h6 {
+  font-family:$sans-serif-font;
+  font-weight:bold;
+  font-size:15px;
+  line-height:1.2em;
+  text-transform:uppercase;
+  text-align:left;
+  margin:20px 0 0 0;
+}
+
 p {
   font-family:$serif-font;
   color:$almost-black;
-  font-size:16px;
-  line-height:1.2em;
+  font-size:18px;
+  line-height:1.3em;
   font-weight:500;
 
   strong {
@@ -328,16 +338,17 @@ aside {
 
 ul {
   margin-top:5px;
-  list-style-position: inside;
-  padding-left:0;
+  padding-left:17px;
+  text-align:left;
   li {
     font-family:$serif-font;
     padding-bottom:3px;
     font-family:$serif-font;
     color:$almost-black;
-    font-size:16px;
-    line-height:1.2em;
+    font-size:18px;
+    line-height:1.3em;
     font-weight:500;
+    text-align:left;
   }
 }
 
@@ -437,6 +448,30 @@ section {
       text-align:left;
     }
   }
+  /* testimonial */
+  aside {
+    blockquote{
+      font-size: 35px;
+      line-height: 1.2em;
+      font-family:$serif-font;
+      margin:10px 0 0 0;
+      font-style:normal;
+
+      /* the quotee */
+      span.attribution{
+        font-weight:bold;
+        font-family:$sans-serif-font;
+        font-size:20px;
+        line-height:1.2em;
+        font-style:normal;
+        color:$darker-red;
+        display:block;
+        text-align:right;
+        padding-top:10px;
+        padding-right:20px;
+      }
+    }
+  }
 }
 
 footer {
@@ -450,15 +485,17 @@ footer {
   color:#fff;
   display: flex;
   flex-direction:column;
-  justify-content: space-evenly;
-  text-align: center;
+  justify-content: space-around;
+
+  section {
+
+  }
 
   h4, p {
     color:#fff;
   }
 
 ul {
-  list-style-type: none;
   li {
     line-height:2em;
     color:#fff;
@@ -510,9 +547,18 @@ ul {
     }
   }
 
-  ul li ul {
-    padding-left:20px;
-  }
+section {
+  /* testimonial now has room for some indentation */
+    aside {
+      blockquote{
+        margin:10px 30px 0 30px;
+        font-size:30px;
+        span.attribution {
+          font-size:18px;
+        }
+      }
+    }
+}
 
   footer {
     padding-left:50px;

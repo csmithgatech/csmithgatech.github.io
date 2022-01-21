@@ -236,13 +236,13 @@ h1 {
   font-size: 80px;
   line-height: 80px;
   color: white;
-  font-weight: 300; }
+  font-weight: 900; }
 
 h2 {
   font-family: Mukta, Arial, Helvetica, sans-serif;
   text-align: center;
   font-weight: 300;
-  font-size: 25px;
+  font-size: 21px;
   line-height: 25px;
   margin: 5px 0 5px 0;
   padding-bottom: 5px;
@@ -288,11 +288,20 @@ h5 {
     color: #139ea8;
     padding-right: 5px; }
 
+h6 {
+  font-family: Mukta, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 20px 0 0 0; }
+
 p {
   font-family: charter, "Georgia", "Times New Roman", serif;
   color: #111;
-  font-size: 16px;
-  line-height: 1.2em;
+  font-size: 18px;
+  line-height: 1.3em;
   font-weight: 500; }
   p strong {
     font-family: Mukta, Arial, Helvetica, sans-serif; }
@@ -304,16 +313,17 @@ aside {
 
 ul {
   margin-top: 5px;
-  list-style-position: inside;
-  padding-left: 0; }
+  padding-left: 17px;
+  text-align: left; }
   ul li {
     font-family: charter, "Georgia", "Times New Roman", serif;
     padding-bottom: 3px;
     font-family: charter, "Georgia", "Times New Roman", serif;
     color: #111;
-    font-size: 16px;
-    line-height: 1.2em;
-    font-weight: 500; }
+    font-size: 18px;
+    line-height: 1.3em;
+    font-weight: 500;
+    text-align: left; }
 
 header {
   padding: 0 30px;
@@ -372,26 +382,46 @@ time {
     color: #e01e24;
     padding-right: 5px; }
 
-section figure {
-  /* every item under work */
-  margin: 0 0 60px 0;
-  /*screenshots of work*/ }
-  section figure a.pic, section figure a.pic:link, section figure a.pic:visited, section figure a.pic:active, section figure a.pic:hover, section figure a.pic:focus {
-    background: none;
-    border: none; }
-section img {
-  transition: filter 0.3s ease 0s;
-  width: 100%;
-  max-width: 568px;
-  border: 1px solid #d8d8d8;
-  filter: brightness(100%); }
-  section img:hover {
-    filter: brightness(75%); }
-section figcaption {
-  text-align: center;
-  padding-top: 10px; }
-  section figcaption p {
-    text-align: left; }
+section {
+  /* testimonial */ }
+  section figure {
+    /* every item under work */
+    margin: 0 0 60px 0;
+    /*screenshots of work*/ }
+    section figure a.pic, section figure a.pic:link, section figure a.pic:visited, section figure a.pic:active, section figure a.pic:hover, section figure a.pic:focus {
+      background: none;
+      border: none; }
+  section img {
+    transition: filter 0.3s ease 0s;
+    width: 100%;
+    max-width: 568px;
+    border: 1px solid #d8d8d8;
+    filter: brightness(100%); }
+    section img:hover {
+      filter: brightness(75%); }
+  section figcaption {
+    text-align: center;
+    padding-top: 10px; }
+    section figcaption p {
+      text-align: left; }
+  section aside blockquote {
+    font-size: 35px;
+    line-height: 1.2em;
+    font-family: charter, "Georgia", "Times New Roman", serif;
+    margin: 10px 0 0 0;
+    font-style: normal;
+    /* the quotee */ }
+    section aside blockquote span.attribution {
+      font-weight: bold;
+      font-family: Mukta, Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      line-height: 1.2em;
+      font-style: normal;
+      color: #c61017;
+      display: block;
+      text-align: right;
+      padding-top: 10px;
+      padding-right: 20px; }
 
 footer {
   width: 85%;
@@ -407,15 +437,12 @@ footer {
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center; }
+  justify-content: space-around; }
   footer h4, footer p {
     color: #fff; }
-  footer ul {
-    list-style-type: none; }
-    footer ul li {
-      line-height: 2em;
-      color: #fff; }
+  footer ul li {
+    line-height: 2em;
+    color: #fff; }
   footer a, footer a:link, footer a:visited, footer a:active {
     color: #fff; }
 
@@ -446,8 +473,13 @@ footer {
     div.about p.profile {
       max-width: 304px; }
 
-  ul li ul {
-    padding-left: 20px; }
+  section {
+    /* testimonial now has room for some indentation */ }
+    section aside blockquote {
+      margin: 10px 30px 0 30px;
+      font-size: 30px; }
+      section aside blockquote span.attribution {
+        font-size: 18px; }
 
   footer {
     padding-left: 50px;
