@@ -108,12 +108,42 @@
 
 .blue-square {
   display: none; }
+  @media (min-width: 1100px) {
+    .blue-square {
+      width: 25px;
+      height: 25px;
+      background-color: #71f8fa;
+      position: fixed;
+      top: 20%;
+      left: 75%;
+      animation-name: twirl;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in ease-out;
+      transition: background-color 0.3s ease 0s;
+      animation-duration: 20s;
+      z-index: -100;
+      display: block; }
+      .blue-square:hover {
+        background-color: #60d2d4; } }
 
 .star0 {
+  background-color: #fff;
+  position: fixed;
+  transform: rotate(45deg);
+  z-index: -100;
+  animation-name: sparkle;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in ease-out;
+  transition: background-color 0.3s ease 0s;
   width: 5px;
   height: 5px;
   top: 33%;
   left: 20%;
+  animation-duration: 5s; }
+
+.star1 {
   background-color: #fff;
   position: fixed;
   transform: rotate(45deg);
@@ -123,13 +153,13 @@
   animation-direction: alternate;
   animation-timing-function: ease-in ease-out;
   transition: background-color 0.3s ease 0s;
-  animation-duration: 5s; }
-
-.star1 {
   width: 3px;
   height: 3px;
   bottom: 25%;
   left: 33%;
+  animation-duration: 10s; }
+
+.star2 {
   background-color: #fff;
   position: fixed;
   transform: rotate(45deg);
@@ -139,13 +169,13 @@
   animation-direction: alternate;
   animation-timing-function: ease-in ease-out;
   transition: background-color 0.3s ease 0s;
-  animation-duration: 10s; }
-
-.star2 {
   width: 3px;
   height: 3px;
   bottom: 45%;
   right: 10%;
+  animation-duration: 5s; }
+
+.star3 {
   background-color: #fff;
   position: fixed;
   transform: rotate(45deg);
@@ -155,13 +185,13 @@
   animation-direction: alternate;
   animation-timing-function: ease-in ease-out;
   transition: background-color 0.3s ease 0s;
-  animation-duration: 5s; }
-
-.star3 {
   width: 3px;
   height: 3px;
   bottom: 10%;
   left: 50%;
+  animation-duration: 15s; }
+
+.star4 {
   background-color: #fff;
   position: fixed;
   transform: rotate(45deg);
@@ -171,13 +201,13 @@
   animation-direction: alternate;
   animation-timing-function: ease-in ease-out;
   transition: background-color 0.3s ease 0s;
-  animation-duration: 15s; }
-
-.star4 {
   width: 3px;
   height: 3px;
   top: 25%;
   right: 23%;
+  animation-duration: 10s; }
+
+.star5 {
   background-color: #fff;
   position: fixed;
   transform: rotate(45deg);
@@ -187,22 +217,10 @@
   animation-direction: alternate;
   animation-timing-function: ease-in ease-out;
   transition: background-color 0.3s ease 0s;
-  animation-duration: 10s; }
-
-.star5 {
   width: 3px;
   height: 3px;
   top: 5%;
   right: 10%;
-  background-color: #fff;
-  position: fixed;
-  transform: rotate(45deg);
-  z-index: -100;
-  animation-name: sparkle;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in ease-out;
-  transition: background-color 0.3s ease 0s;
   animation-duration: 5s; }
 
 body {
@@ -235,7 +253,7 @@ h1 {
   margin-bottom: 0;
   font-size: 80px;
   line-height: 80px;
-  color: white;
+  color: #fff;
   font-weight: 900; }
 
 h2 {
@@ -246,7 +264,7 @@ h2 {
   line-height: 25px;
   margin: 5px 0 5px 0;
   padding-bottom: 5px;
-  color: white;
+  color: #fff;
   border-bottom: 1px solid #71f8fa; }
 
 h3 {
@@ -267,6 +285,10 @@ h3 {
   /*fallback color is set above*/
   color: #fff;
   text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+  @media (min-width: 750px) {
+    h3 {
+      font-size: 70px;
+      line-height: 75px; } }
 
 h4, h5, h6 {
   color: #111;
@@ -329,12 +351,16 @@ header {
   padding: 0 30px;
   margin: 75px auto 0 auto;
   max-width: 650px; }
+  @media (min-width: 750px) {
+    header {
+      padding-left: 50px;
+      padding-right: 50px; } }
 
 main {
   background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #d8d8d8;
   width: 85%;
-  max-width: 650px;
+  max-width: 780px;
   margin: 50px auto;
   padding: 20px 30px 40px 30px;
   -webkit-box-sizing: border-box;
@@ -343,13 +369,17 @@ main {
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+ */ }
+  @media (min-width: 750px) {
+    main {
+      padding-left: 50px;
+      padding-right: 50px; } }
 
 nav {
   font-family: Mukta, Arial, Helvetica, sans-serif;
   margin-top: 20px;
   font-weight: bold;
   display: flex;
-  flex-direction: column; }
+  flex-flow: column wrap; }
   nav a, nav a:link, nav a:visited, nav a:active {
     background-color: #e01e24;
     padding: 10px 15px;
@@ -365,15 +395,30 @@ nav {
     background-color: #71f8fa;
     border: 1px solid #71f8fa;
     color: #111; }
+  @media (min-width: 750px) {
+    nav {
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px; } }
 
 div.about {
   display: flex;
   flex-direction: column; }
-  div.about img.profile {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    margin: 20px auto 0 auto; }
+  @media (min-width: 750px) {
+    div.about {
+      flex-direction: row;
+      gap: 16px; } }
+
+.profile-img {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin: 20px auto 0 auto; }
+  @media (min-width: 750px) {
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      margin: 20px 0 0 0; } }
 
 time {
   font-family: Mukta, Arial, Helvetica, sans-serif; }
@@ -391,14 +436,6 @@ section {
     section figure a.pic, section figure a.pic:link, section figure a.pic:visited, section figure a.pic:active, section figure a.pic:hover, section figure a.pic:focus {
       background: none;
       border: none; }
-  section img {
-    transition: filter 0.3s ease 0s;
-    width: 100%;
-    max-width: 568px;
-    border: 1px solid #d8d8d8;
-    filter: brightness(100%); }
-    section img:hover {
-      filter: brightness(75%); }
   section figcaption {
     text-align: center;
     padding-top: 10px; }
@@ -410,7 +447,11 @@ section {
     font-family: charter, "Georgia", "Times New Roman", serif;
     margin: 10px 0 0 0;
     font-style: normal;
-    /* the quotee */ }
+    /* the person quoted */ }
+    @media (min-width: 750px) {
+      section aside blockquote {
+        margin: 10px 30px 0 30px;
+        font-size: 30px; } }
     section aside blockquote span.attribution {
       font-weight: bold;
       font-family: Mukta, Arial, Helvetica, sans-serif;
@@ -422,6 +463,20 @@ section {
       text-align: right;
       padding-top: 10px;
       padding-right: 20px; }
+      @media (min-width: 750px) {
+        section aside blockquote span.attribution {
+          font-size: 18px; } }
+
+.website-screencap {
+  transition: filter 0.3s ease 0s;
+  width: 100%;
+  max-width: 568px;
+  border: 1px solid #d8d8d8;
+  filter: brightness(100%);
+  display: block;
+  margin-inline: auto; }
+  .website-screencap:hover {
+    filter: brightness(75%); }
 
 footer {
   width: 85%;
@@ -438,6 +493,12 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-around; }
+  @media (min-width: 750px) {
+    footer {
+      padding-left: 50px;
+      padding-right: 50px;
+      flex-direction: row;
+      text-align: left; } }
   footer h4, footer p {
     color: #fff; }
   footer ul li {
@@ -445,64 +506,5 @@ footer {
     color: #fff; }
   footer a, footer a:link, footer a:visited, footer a:active {
     color: #fff; }
-
-@media (min-width: 750px) {
-  header {
-    padding-left: 50px;
-    padding-right: 50px; }
-
-  main {
-    padding-left: 50px;
-    padding-right: 50px; }
-
-  nav {
-    flex-direction: row;
-    justify-content: space-between; }
-
-  h3 {
-    font-size: 70px;
-    line-height: 75px; }
-
-  div.about {
-    flex-direction: row;
-    justify-content: space-between; }
-    div.about img.profile {
-      width: 200px;
-      height: 200px;
-      margin: 20px 0 0 0; }
-    div.about p.profile {
-      max-width: 304px; }
-
-  section {
-    /* testimonial now has room for some indentation */ }
-    section aside blockquote {
-      margin: 10px 30px 0 30px;
-      font-size: 30px; }
-      section aside blockquote span.attribution {
-        font-size: 18px; }
-
-  footer {
-    padding-left: 50px;
-    padding-right: 50px;
-    flex-direction: row;
-    text-align: left; } }
-@media (min-width: 1100px) {
-  .blue-square {
-    width: 25px;
-    height: 25px;
-    background-color: #71f8fa;
-    position: fixed;
-    top: 20%;
-    left: 75%;
-    animation-name: twirl;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-in ease-out;
-    transition: background-color 0.3s ease 0s;
-    animation-duration: 20s;
-    z-index: -100;
-    display: block; }
-    .blue-square:hover {
-      background-color: #60d2d4; } }
 
 /*# sourceMappingURL=style.css.map */

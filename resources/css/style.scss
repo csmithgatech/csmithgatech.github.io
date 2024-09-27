@@ -1,6 +1,6 @@
 //Mobile First
 //Variables
-//-Colors
+//Colors
 $neon-blue: #71f8fa;
 $darker-blue: #60d2d4; //rgb(96, 210, 212)
 $teal: #139ea8; //rgb(19, 158, 168)
@@ -8,6 +8,12 @@ $bright-red: #e01e24; //rgb(224, 30, 36)
 $darker-red: #c61017;
 $almost-black: #111;
 $border-color: #d8d8d8;
+
+//Breakpoints
+$tablet: 750px;
+$desktop: 1100px;
+
+$gap: 16px;
 
 //-Fonts
 @font-face {
@@ -44,8 +50,8 @@ src: url('../fonts/charter_bold_italic.woff2') format('woff2');
 
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 
-$serif-font:charter, 'Georgia', 'Times New Roman', serif;
-$sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
+$serif-font: charter, 'Georgia', 'Times New Roman', serif;
+$sans-serif-font: Mukta, Arial, Helvetica, sans-serif;
 
 //Mixins
 @mixin twirl-animation {
@@ -53,7 +59,7 @@ $sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in ease-out;
-  transition:background-color 0.3s ease 0s;
+  transition: background-color 0.3s ease 0s;
 }
 
 @mixin sparkle-animation {
@@ -61,7 +67,7 @@ $sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in ease-out;
-  transition:background-color 0.3s ease 0s;
+  transition: background-color 0.3s ease 0s;
 }
 
 @mixin wiggle-animation {
@@ -71,17 +77,17 @@ $sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
 }
 
 @mixin star {
-  background-color:#fff;
-  position:fixed;
-  transform:rotate(45deg);
-  z-index:-100;
+  background-color: #fff;
+  position: fixed;
+  transform: rotate(45deg);
+  z-index: -100;
 }
 
 @keyframes twirl {
-  0% {transform:rotate(45deg);}
-  25% {transform:rotate(45deg);}
-  50% {transform:rotate(225deg);}
-  100% {transform:rotate(225deg);}
+  0% {transform: rotate(45deg);}
+  25% {transform: rotate(45deg);}
+  50% {transform: rotate(225deg);}
+  100% {transform: rotate(225deg);}
 }
 
 @keyframes sparkle {
@@ -92,9 +98,9 @@ $sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
 }
 
 @keyframes wiggle {
-  0% {top:0;left:0;}
-  50% {top: 5px;left:3px;}
-  100% {top:0;left:0;}
+  0% {top: 0; left: 0;}
+  50% {top: 5px; left: 3px;}
+  100% {top: 0; left: 0;}
 }
 
 //Shapes
@@ -102,13 +108,14 @@ $sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
   width: 280px;
   height: 280px;
   background-color: $bright-red;
-  position:fixed;
-  top:-140px;
-  left:-140px;
-  transition:background-color 0.3s ease 0s;
-  z-index:-100;
+  position: fixed;
+  top: -140px;
+  left: -140px;
+  transition: background-color 0.3s ease 0s;
+  z-index: -100;
   @include twirl-animation;
   animation-duration: 60s;
+
   &:hover {
     background-color: $darker-red;
   }
@@ -118,13 +125,14 @@ $sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
   width: 5px;
   height: 5px;
   background-color: $bright-red;
-  position:fixed;
-  top:85%;
-  left:10%;
-  transform:rotate(45deg);
-  z-index:-100;
+  position: fixed;
+  top: 85%;
+  left: 10%;
+  transform: rotate(45deg);
+  z-index: -100;
   @include twirl-animation;
   animation-duration: 10s;
+
   &:hover {
     background-color: $darker-red;
   }
@@ -134,142 +142,166 @@ $sans-serif-font:Mukta, Arial, Helvetica, sans-serif;
   width: 200px;
   height: 200px;
   background-color: $teal;
-  position:fixed;
-  top:50%;
-  right:-100px;
-  transition:background-color 0.3s ease 0s;
+  position: fixed;
+  top: 50%;
+  right: -100px;
+  transition: background-color 0.3s ease 0s;
   transform: rotate(-45deg);
-  z-index:-100;
+  z-index: -100;
   @include twirl-animation;
   animation-duration: 80s;
+
   &:hover {
     background-color: $neon-blue;
   }
 }
 .blue-square {
-  display:none;
+  display: none;
+
+  @media (min-width: $desktop) {
+    width: 25px;
+    height: 25px;
+    background-color: $neon-blue;
+    position: fixed;
+    top: 20%;
+    left: 75%;
+    @include twirl-animation;
+    animation-duration: 20s;
+    z-index: -100;
+    display: block;
+
+    &:hover {
+      background-color: $darker-blue;
+    }
+  }
 }
 
 .star0 {
-  width:5px;
-  height:5px;
-  top:33%;
-  left:20%;
   @include star;
   @include sparkle-animation;
-  animation-duration:5s;
+
+  width: 5px;
+  height: 5px;
+  top: 33%;
+  left: 20%;
+  animation-duration: 5s;
 }
 
 .star1 {
-  width:3px;
-  height:3px;
-  bottom:25%;
-  left:33%;
   @include star;
   @include sparkle-animation;
-  animation-duration:10s;
+
+  width: 3px;
+  height: 3px;
+  bottom: 25%;
+  left: 33%;
+  animation-duration: 10s;
 }
 
 .star2 {
-  width:3px;
-  height:3px;
-  bottom:45%;
-  right:10%;
   @include star;
   @include sparkle-animation;
-  animation-duration:5s;
+
+  width: 3px;
+  height: 3px;
+  bottom: 45%;
+  right: 10%;
+  animation-duration: 5s;
 }
 
 .star3 {
-  width:3px;
-  height:3px;
-  bottom:10%;
-  left:50%;
   @include star;
   @include sparkle-animation;
-  animation-duration:15s;
+
+  width: 3px;
+  height: 3px;
+  bottom: 10%;
+  left: 50%;
+  animation-duration: 15s;
 }
 
 .star4 {
-  width:3px;
-  height:3px;
-  top:25%;
-  right:23%;
   @include star;
   @include sparkle-animation;
-  animation-duration:10s;
+
+  width: 3px;
+  height: 3px;
+  top: 25%;
+  right: 23%;
+  animation-duration: 10s;
 }
 
 .star5 {
-  width:3px;
-  height:3px;
-  top:5%;
-  right:10%;
   @include star;
   @include sparkle-animation;
-  animation-duration:5s;
+
+  width: 3px;
+  height: 3px;
+  top: 5%;
+  right: 10%;
+  animation-duration: 5s;
 }
 
 //Layout
 body {
-  margin:0;
-  padding:0;
-  background-color:#000;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
 }
 
 a, a:link, a:visited, a:active {
-  font-family:$sans-serif-font;
-  font-weight:bold;
+  font-family: $sans-serif-font;
+  font-weight: bold;
   padding: 0 0 1px 0;
-  line-height:2em;
-  border-bottom:2px solid $teal;
-  text-decoration:none;
-  color:$almost-black;
-  transition:padding 0.3s ease 0s, border 0.3s ease 0s;
+  line-height: 2em;
+  border-bottom: 2px solid $teal;
+  text-decoration: none;
+  color: $almost-black;
+  transition: padding 0.3s ease 0s, border 0.3s ease 0s;
 }
 
 a:hover, a:focus {
-  border-bottom:none;
-  text-decoration:none;
-  color:$almost-black;
-  padding:0;
-  line-height:2em;
+  border-bottom: none;
+  text-decoration: none;
+  color: $almost-black;
+  padding: 0;
+  line-height: 2em;
   border-bottom: 2px solid $bright-red;
 }
 
 h1 {
-  text-align:center;
-  letter-spacing:1px;
-  font-family:$sans-serif-font;
-  margin-bottom:0;
-  font-size:80px;
-  line-height:80px;
-  color:white;
-  font-weight:900;
+  text-align: center;
+  letter-spacing: 1px;
+  font-family: $sans-serif-font;
+  margin-bottom: 0;
+  font-size: 80px;
+  line-height: 80px;
+  color: #fff;
+  font-weight: 900;
 }
 
 h2 {
-  font-family:$sans-serif-font;
-  text-align:center;
-  font-weight:300;
-  font-size:21px;
-  line-height:25px;
-  margin:5px 0 5px 0;
-  padding-bottom:5px;
-  color:white;
-  border-bottom:1px solid $neon-blue;
+  font-family: $sans-serif-font;
+  text-align: center;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 25px;
+  margin: 5px 0 5px 0;
+  padding-bottom: 5px;
+  color: #fff;
+  border-bottom: 1px solid $neon-blue;
 }
 
 h3 {
-  font-family:$sans-serif-font;
-  margin-top:30px;
-  margin-bottom:0;
-  font-size:45px;
-  line-height:50px;
-  padding-bottom:1px;
-  font-weight:500;
-  border-bottom:3px solid $darker-red;
-  word-break:break-all;
+  font-family: $sans-serif-font;
+  margin-top: 30px;
+  margin-bottom: 0;
+  font-size: 45px;
+  line-height: 50px;
+  padding-bottom: 1px;
+  font-weight: 500;
+  border-bottom: 3px solid $darker-red;
+  word-break: break-all;
   /* hyphens bc they are big */
   -webkit-hyphens: auto;
    -moz-hyphens: auto;
@@ -283,168 +315,193 @@ h3 {
        1px -1px 0 #000,
        -1px 1px 0 #000,
         1px 1px 0 #000;
+
+  @media (min-width: $tablet) {
+    font-size: 70px;
+    line-height: 75px;
+  }
 }
 
 h4, h5, h6 {
-  color:$almost-black; /*fallback color for h3 as well*/
+  color: $almost-black; /*fallback color for h3 as well*/
 }
 
 h4 {
   font-size: 25px;
-  line-height:25px;
-  font-family:$sans-serif-font;
+  line-height: 25px;
+  font-family: $sans-serif-font;
   margin: 20px 0 0 0;
 }
 
 h5 {
-  margin:10px 0;
-  font-family:$sans-serif-font;
-  font-size:20px;
-  line-height:20px;
+  margin: 10px 0;
+  font-family: $sans-serif-font;
+  font-size: 20px;
+  line-height: 20px;
   &:before{
-    content:"\00BB";
-    color:$teal;
-    padding-right:5px;
+    content: "\00BB";
+    color: $teal;
+    padding-right: 5px;
   }
 }
 
 h6 {
-  font-family:$sans-serif-font;
-  font-weight:bold;
-  font-size:15px;
-  line-height:1.2em;
-  text-transform:uppercase;
-  text-align:left;
-  margin:20px 0 0 0;
+  font-family: $sans-serif-font;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 20px 0 0 0;
 }
 
 p {
-  font-family:$serif-font;
-  color:$almost-black;
-  font-size:18px;
-  line-height:1.3em;
-  font-weight:500;
+  font-family: $serif-font;
+  color: $almost-black;
+  font-size: 18px;
+  line-height: 1.3em;
+  font-weight: 500;
 
   strong {
-    font-family:$sans-serif-font;
+    font-family: $sans-serif-font;
   }
 }
 
 aside {
-  font-style:italic;
-  font-family:$serif-font;
-  font-size:14px;
+  font-style: italic;
+  font-family: $serif-font;
+  font-size: 14px;
 }
 
 ul {
-  margin-top:5px;
-  padding-left:17px;
-  text-align:left;
+  margin-top: 5px;
+  padding-left: 17px;
+  text-align: left;
   li {
-    font-family:$serif-font;
-    padding-bottom:3px;
-    font-family:$serif-font;
-    color:$almost-black;
-    font-size:18px;
-    line-height:1.3em;
-    font-weight:500;
-    text-align:left;
+    font-family: $serif-font;
+    padding-bottom: 3px;
+    font-family: $serif-font;
+    color: $almost-black;
+    font-size: 18px;
+    line-height: 1.3em;
+    font-weight: 500;
+    text-align: left;
   }
 }
 
-//-header
+
 header {
   padding: 0 30px;
-  margin:75px auto 0 auto;
-  max-width:650px;
+  margin: 75px auto 0 auto;
+  max-width: 650px;
+
+  @media(min-width: $tablet) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
 main {
-  background-color:rgba(255, 255, 255, 0.90);
+  background-color: rgba(255, 255, 255, 0.90);
   border: 1px solid $border-color;
-  width:85%;
-  max-width:650px;
-  margin:50px auto;
-  padding:20px 30px 40px 30px;
+  width: 85%;
+  max-width: 780px;
+  margin: 50px auto;
+  padding: 20px 30px 40px 30px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
+
+  @media (min-width: $tablet) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
 nav {
-  font-family:$sans-serif-font;
-  margin-top:20px;
-  font-weight:bold;
+  font-family: $sans-serif-font;
+  margin-top: 20px;
+  font-weight: bold;
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
 
   a, a:link, a:visited, a:active {
-    background-color:$bright-red;
+    background-color: $bright-red;
     padding: 10px 15px;
-    border:1px solid $almost-black;
-    font-weight:bolder;
-    text-decoration:none;
-    color:#fff;
-    font-family:$sans-serif-font;
-    transition:background-color 0.3s ease 0s, color 0.3s ease 0s, border 0.3s ease 0s;
-    display:inline-block;
+    border: 1px solid $almost-black;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #fff;
+    font-family: $sans-serif-font;
+    transition: background-color 0.3s ease 0s, color 0.3s ease 0s, border 0.3s ease 0s;
+    display: inline-block;
     text-transform: capitalize;
   }
 
   a:hover, a:focus {
-    background-color:$neon-blue;
-    border:1px solid $neon-blue;
+    background-color: $neon-blue;
+    border: 1px solid $neon-blue;
     color: $almost-black;
+  }
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    justify-content: center;
+    gap: $gap;
   }
 }
 
 div.about {
-  display:flex;
-  flex-direction:column;
-  img.profile {
-    width:100%;
-    height:auto;
-    max-width:300px;
-    margin:20px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+
+
+  @media (min-width: $tablet) {
+    flex-direction: row;
+    gap: $gap;
+  }
+}
+
+.profile-img {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  margin: 20px auto 0 auto;
+
+  @media (min-width: $tablet) {
+    width: 200px;
+    height: 200px;
+    margin: 20px 0 0 0;
   }
 }
 
 time {
-  font-family:$sans-serif-font;
+  font-family: $sans-serif-font;
   &:before {
-    content:"\2192";
-    color:$bright-red;
-    padding-right:5px;
+    content: "\2192";
+    color: $bright-red;
+    padding-right: 5px;
   }
 }
 
 section {
   figure {
     /* every item under work */
-    margin:0 0 60px 0;
+    margin: 0 0 60px 0;
 
     /*screenshots of work*/
     a.pic, a.pic:link, a.pic:visited, a.pic:active, a.pic:hover, a.pic:focus {
-      background:none;
-      border:none;
+      background: none;
+      border: none;
     }
   }
-  img {
-    transition:filter 0.3s ease 0s;
-    width:100%;
-    max-width:568px;
-    border: 1px solid $border-color;
-    filter: brightness(100%);
-    &:hover {
-      filter: brightness(75%);
-    }
-  }
+
   figcaption {
-    text-align:center;
-    padding-top:10px;
+    text-align: center;
+    padding-top: 10px;
 
     p {
-      text-align:left;
+      text-align: left;
     }
   }
 
@@ -453,139 +510,85 @@ section {
     blockquote{
       font-size: 35px;
       line-height: 1.2em;
-      font-family:$serif-font;
-      margin:10px 0 0 0;
-      font-style:normal;
+      font-family: $serif-font;
+      margin: 10px 0 0 0;
+      font-style: normal;
+
+      @media (min-width: $tablet) {
+        margin: 10px 30px 0 30px;
+        font-size: 30px;
+      }
 
       /* the person quoted */
       span.attribution{
-        font-weight:bold;
-        font-family:$sans-serif-font;
-        font-size:20px;
-        line-height:1.2em;
-        font-style:normal;
-        color:$darker-red;
-        display:block;
-        text-align:right;
-        padding-top:10px;
-        padding-right:20px;
+        font-weight: bold;
+        font-family: $sans-serif-font;
+        font-size: 20px;
+        line-height: 1.2em;
+        font-style: normal;
+        color: $darker-red;
+        display: block;
+        text-align: right;
+        padding-top: 10px;
+        padding-right: 20px;
+
+        @media (min-width: $tablet) {
+          font-size: 18px;
+        }
       }
     }
   }
 }
 
+.website-screencap {
+  transition: filter 0.3s ease 0s;
+  width: 100%;
+  max-width: 568px;
+  border: 1px solid $border-color;
+  filter: brightness(100%);
+  display: block;
+  margin-inline: auto;
+
+  &:hover {
+    filter: brightness(75%);
+  }
+}
+
 footer {
-  width:85%;
-  max-width:650px;
-  margin:50px auto;
-  padding:20px 30px 40px 30px;
+  width: 85%;
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 20px 30px 40px 30px;
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;         /* Opera/IE 8+ */
-  color:#fff;
+  color: #fff;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-around;
 
-  section {
-
+  @media (min-width: $tablet) {
+    padding-left: 50px;
+    padding-right: 50px;
+    flex-direction: row;
+    text-align: left;
   }
 
   h4, p {
-    color:#fff;
+    color: #fff;
   }
 
 ul {
   li {
-    line-height:2em;
-    color:#fff;
+    line-height: 2em;
+    color: #fff;
   }
 }
 
   a, a:link, a:visited, a:active {
-    color:#fff;
+    color: #fff;
   }
   a:hover, a:focus {
 
   }
 }//end footer
-
-//Tablet
-@media (min-width: 750px) {
-
-  header {
-    padding-left:50px;
-    padding-right:50px;
-  }
-
-  main {
-    padding-left:50px;
-    padding-right:50px;
-  }
-
-  nav{
-    flex-direction: row;
-     justify-content: space-between;
-  }
-
-  h3 {
-    font-size:70px;
-    line-height:75px;
-  }
-
-  div.about {
-    flex-direction:row;
-    justify-content:space-between;
-
-    img.profile {
-    width:200px;
-    height:200px;
-    margin:20px 0 0 0;
-    }
-    p.profile {
-      max-width:304px;
-    }
-  }
-
-section {
-
-  /* testimonial now has room for some indentation */
-    aside {
-      blockquote{
-        margin:10px 30px 0 30px;
-        font-size:30px;
-
-        /* person being quoted */
-        span.attribution {
-          font-size:18px;
-        }
-      }
-    }
-}
-
-  footer {
-    padding-left:50px;
-    padding-right:50px;
-    flex-direction:row;
-    text-align:left;
-  }
-}
-
-//Desktop
-@media (min-width: 1100px) {
-  .blue-square {
-    width: 25px;
-    height: 25px;
-    background-color:$neon-blue;
-    position:fixed;
-    top:20%;
-    left:75%;
-    @include twirl-animation;
-    animation-duration: 20s;
-    z-index:-100;
-    display: block;
-    &:hover {
-      background-color: $darker-blue;
-    }
-  }
-}
